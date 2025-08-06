@@ -1,0 +1,50 @@
+{
+	"name": "@neodevils/kaeru-tools",
+	"version": "1.0.1",
+	"description": "Utility functions used across the Karu ecosystem",
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"type": "module",
+	"exports": {
+		".": {
+			"import": "./dist/index.js",
+			"types": "./dist/index.d.ts"
+		}
+	},
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"build": "tsc",
+		"dev": "tsc --watch",
+		"clean": "rm -rf dist",
+		"test": "tsx src/test/index.test.ts",
+		"prepublishOnly": "npm run clean && npm run build"
+	},
+	"keywords": [
+		"karu",
+		"utils",
+		"tools",
+		"typescript",
+		"kaeru"
+	],
+	"author": "Neodevils",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/neodevils/kaeru-tools.git"
+	},
+	"homepage": "https://github.com/neodevils/kaeru-tools#readme",
+	"dependencies": {
+		"@google/generative-ai": "^0.24.1",
+		"dotenv": "^17.2.1"
+	},
+	"devDependencies": {
+		"@types/node": "^20.0.0",
+		"tsx": "^4.20.3",
+		"typescript": "^5.3.3"
+	},
+	"engines": {
+		"node": ">=18.0.0"
+	}
+}

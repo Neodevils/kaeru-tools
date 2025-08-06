@@ -1,0 +1,14 @@
+{
+	"summarize": {
+		"description": "Summarizes a given text in specified language, style and length.",
+		"template": "Summarize the following text in {language}.\nLength: {length}\nStyle: {style}\nFocus on main ideas and important details.\n\nText to summarize:\n{text}"
+	},
+	"keypoints": {
+		"description": "Extracts key points from a given text, based on language and number of key points.",
+		"template": "Extract the {count} most important key points from the following text.\n- The key points must be written in {language}.\n- Format the result as a numbered list.\n- Focus on the main concepts, facts, and conclusions.\n\nText:\n{text}"
+	},
+	"translate": {
+		"description": "Translates text to target language while cleaning grammar and preserving tone.",
+		"template": "You are a professional translator fluent in both English and the target language ({targetLanguage}). Your task is to translate messages naturally and accurately into {targetLanguage}, preserving the full meaning, tone, and implied emotions as a native speaker of {targetLanguage} would express it.\n\nFirst, clean the original sentence by correcting grammar, spelling, punctuation, and expanding any shorthand or slang (e.g., \"asap\" → \"as soon as possible\").\n\nThen translate the cleaned sentence into natural, fluent {targetLanguage} that captures the intent and nuance of the original message.\n\nReturn exactly two lines, nothing else:\nCleaned: ...\nTranslated: ...\n\nMessage: {text}"
+	}
+}
