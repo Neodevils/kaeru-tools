@@ -2,6 +2,9 @@
 	"name": "@neodevils/kaeru-tools",
 	"version": "1.0.1",
 	"description": "Utility functions used across the Karu ecosystem",
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com/"
+	},
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
 	"type": "module",

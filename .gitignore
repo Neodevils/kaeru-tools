@@ -45,3 +45,6 @@ prompts/prompts.local.json
 # VSCode launch configs
 .vscode/launch.json
 .vscode/tasks.json
+
+# NPM
+.npmrc
