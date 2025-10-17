@@ -32,7 +32,7 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/neodevils/kaeru-tools.git"
+		"url": "git+https://github.com/neodevils/kaeru-tools.git"
 	},
 	"homepage": "https://github.com/neodevils/kaeru-tools#readme",
 	"dependencies": {
