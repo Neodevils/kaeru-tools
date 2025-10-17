@@ -10,12 +10,13 @@ import PromptLoader from "../helpers/PromptLoader.js";
 dotenv.config();
 
 /**
- * Options for initializing KaruClient.
+ * Options for initializing KaruAssistant.
  * @typedef {Object} KaruOptions
  * @property {string} [modelName] - Name of the generative AI model to use.
  * @property {GenerationConfig} [generationConfig] - Configuration for generation parameters.
  */
 interface KaruOptions {
+	apiKey?: string;
 	modelName?: string;
 	generationConfig?: GenerationConfig;
 }
@@ -33,7 +34,6 @@ interface SummaryOptions {
 
 /**
  * Result structure returned by the translate method.
- * @typedef {Object} TranslateResult
  * @property {string} cleaned - The cleaned input text after translation processing.
  * @property {string} translated - The translated text.
  */
@@ -43,11 +43,11 @@ interface TranslateResult {
 }
 
 /**
- * KaruClient is a wrapper for Google Generative AI models providing
+ * KaruAssistant is a wrapper for Google Generative AI models providing
  * methods for asking questions, summarizing text, extracting key points,
  * and translating text with configurable options.
  */
-export default class KaruClient {
+export default class KaruAssistant {
 	/**
 	 * @private
 	 * @type {GenerativeModel}
@@ -55,28 +55,39 @@ export default class KaruClient {
 	private model: GenerativeModel;
 
 	/**
-	 * Creates an instance of KaruClient.
+	 * Creates an instance of KaruAssistant.
 	 * Requires `KARU_API_KEY` in environment variables.
 	 *
 	 * @param {KaruOptions} [options={}] - Options to configure the client.
 	 * @throws Will throw an error if `KARU_API_KEY` is missing.
 	 */
 	constructor(options: KaruOptions = {}) {
-		const apiKey = process.env.GOOGLE_AI_API_KEY;
-		if (!apiKey) throw new Error("GOOGLE_AI_API_KEY is missing in .env");
+		const apiKey =
+			options.apiKey ??
+			process.env.GOOGLE_AI_API_KEY ??
+			globalThis.GOOGLE_AI_API_KEY;
 
-		const { modelName = "gemma-3n-e4b-it", generationConfig } = options;
+		if (!apiKey) {
+			throw new Error(
+				"Missing API key. Provide via options.apiKey, process.env.GOOGLE_AI_API_KEY, or globalThis.GOOGLE_AI_API_KEY.",
+			);
+		}
 
-		const genAI = new GoogleGenerativeAI(apiKey);
-
-		this.model = genAI.getGenerativeModel({
-			model: modelName,
-			generationConfig: generationConfig ?? {
+		const {
+			modelName = "gemma-3n-e4b-it",
+			generationConfig = {
 				temperature: 0.3,
 				maxOutputTokens: 1024,
 				topP: 0.9,
 				topK: 10,
 			},
+		} = options;
+
+		const genAI = new GoogleGenerativeAI(apiKey);
+
+		this.model = genAI.getGenerativeModel({
+			model: modelName,
+			generationConfig,
 		});
 	}
 

@@ -1,3 +1,3 @@
-export { default as KaruClient } from "./client/KaruClient.js";
+export { default as KaruAssistant } from "./client/KaruAssistant.js";
 export * from "./enums/languages.js";
 export * from "./utils/resolveLanguage.js";
