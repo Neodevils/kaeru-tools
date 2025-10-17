@@ -19,9 +19,9 @@ yarn add kaeru-tools
 Import what you need directly from the package — no subfolders required.
 
 ```ts
-import KaruClient from "kaeru-tools";
+import KaruAssistant from "kaeru-tools";
 
-const client = new KaruClient();
+const client = new KaruAssistant();
 // Use client methods here
 ```
 
@@ -29,7 +29,7 @@ const client = new KaruClient();
 
 -   **Enums**: Languages, SummaryLength, SummaryStyle, etc.
 -   **Helpers**: Utility functions like resolveLanguageFromLocale
--   **Classes**: KaruClient — main client class for AI interactions and more.
+-   **Classes**: KaruAssistant — main client class for AI interactions and more.
 
 ## ⚙️ Configuration & Environment
 

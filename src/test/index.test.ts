@@ -1,6 +1,6 @@
-import { KaruClient, Languages } from "../index.js";
+import { KaruAssistant, Languages } from "../index.js";
 
-const client = new KaruClient();
+const client = new KaruAssistant();
 
 const text = `asap help me pls`;
 
