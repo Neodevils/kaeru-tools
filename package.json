@@ -1,6 +1,6 @@
 {
 	"name": "kaeru-tools",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Utility functions used across the Karu ecosystem",
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
@@ -36,8 +36,7 @@
 	},
 	"homepage": "https://github.com/neodevils/kaeru-tools#readme",
 	"dependencies": {
-		"@google/generative-ai": "^0.24.1",
-		"dotenv": "^17.2.1"
+		"@google/generative-ai": "^0.24.1"
 	},
 	"devDependencies": {
 		"@types/node": "^20.0.0",

@@ -1,4 +1,3 @@
-import dotenv from "dotenv";
 import {
 	GoogleGenerativeAI,
 	GenerativeModel,
@@ -6,8 +5,6 @@ import {
 } from "@google/generative-ai";
 import { SummaryLength, SummaryStyle, Languages } from "../enums/languages.js";
 import PromptLoader from "../helpers/PromptLoader.js";
-
-dotenv.config();
 
 /**
  * Options for initializing KaruAssistant.
